@@ -9,33 +9,35 @@ function startTimer() {
   if (startText.innerText == "Start") {
     startText.innerText = "Stop";
     // Start the actual timer.
-    countDown(1500);
+    x = setInterval(function() {
+      countDown(1500);
+    }, 1000);
   } else if (startText.innerText == "Stop") {
     startText.innerText = "Start";
     // Add a button for reseting the timer when stopped
   }
 }
 
-function countDown(time, input) {
+function countDown(time) {
   var timer = document.getElementById('timer');
+  console.log('Hello!')
+  countDownInterval(time);
+  // x = setInterval(countDownInterval, 1000)
+}
 
-  x = setInterval(countDownInterval, 1000)
+function countDownInterval(time) {
+    console.log('world!')
+    minutes = Math.floor(time / 60);
+    seconds = time % 60;
 
-  function countDownInterval() {
-    if (input = true) {
-      minutes = Math.floor(time / 60);
-      seconds = time % 60;
-
-      if (seconds < 10) {
-        seconds = "0" + seconds;
-      }
-
-      timer.innerText = minutes + ":" + seconds;
-
-      time--;
-      if (time <= 0) {
-        clearInterval(x);
-      }
+    if (seconds < 10) {
+      seconds = "0" + seconds;
     }
-  }
+
+    timer.innerText = minutes + ":" + seconds;
+
+    time--;
+    if (time <= 0) {
+      clearInterval(x);
+    }
 }
