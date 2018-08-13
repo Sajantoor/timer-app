@@ -3,6 +3,7 @@ body {
   width: 100%;
   height: 100%;
   background-color: #e74c3c;
+  transition: background-color 2s linear;
 }
 
 body, header, header input, h1, h2 {
@@ -18,6 +19,12 @@ h1 {
   color: #ecf0f1;
 }
 
+h2#taskText {
+  text-align: center;
+  color: #FFF;
+  font-weight: 400;
+}
+
 h2#timer {
   text-align: center;
   color: #FFF;
@@ -26,7 +33,7 @@ h2#timer {
   font-size: 40pt;
 }
 
-button#start {
+button {
   position: relative;
   top: 50pt;
   border: none;
@@ -34,6 +41,7 @@ button#start {
   color: inherit;
   cursor: pointer;
   border-radius: 50%;
+  margin: 10px;
   margin-left: auto;
   margin-right: auto;
   display: block;
@@ -41,8 +49,42 @@ button#start {
   width: 60pt;
 }
 
-button#start h2 {
+button h2 {
   font-size: 15pt;
   text-align: center;
   font-weight: 300;
+}
+
+button#reset {
+  height: 40pt;
+  width: 40pt;
+  visibility: hidden;
+  opacity: 0.0;
+  transition: visibility 0.2s linear, opacity 0.2s linear;
+}
+
+button#reset h2 {
+  font-size: 12pt;
+  color: #c0392b;
+}
+
+input {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #c0392b;
+  border: 0;
+  font-size: 16pt;
+  color: white;
+  padding: 10px;
+  text-indent: 10px;
+  border-radius: 15px;
+
+  box-shadow: none;
+  outline: none;
+  appearance: none;
+  -webkit-appearance-none;
+  -moz-appearance-none;
+  -ms-appearance-none;
+  -o-appearance-none;
 }
