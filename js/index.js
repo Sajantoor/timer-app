@@ -34,8 +34,11 @@ function startTimer() {
     document.getElementById('reset').removeAttribute('style');
     startText.innerText = "Stop";
     window.timerEnabled = true;
+    document.getElementById('description').innerText = "Work Time!";
     // Start the actual timer.
-    countDown(timeValue);
+    setTimeout(function() {
+      countDown(timeValue);
+    }, 1000);
   } else if (startText.innerText == "Stop") {
     startText.innerText = "Start";
     window.timerEnabled = false;
@@ -84,8 +87,10 @@ function countDown(time) {
 function breakTime() {
   window.br = true;
   document.body.style.backgroundColor = "#3498db";
+  document.getElementById('start').style = "visibility: hidden";
+  document.getElementById('description').innerText = "Break Time!";
   // Change to 300
-  if (timesCompleted < 4) {
+  if (timesCompleted <= 4) {
     countDown(300);
       // Change to 301000
     setTimeout(function() {
@@ -109,9 +114,15 @@ function breakTime() {
   function resetBreak() {
     document.body.style.backgroundColor = "";
     window.br = false;
+    document.getElementById('start').style = "";
+    document.getElementById('description').innerText = "Work Time!";
   }
 }
 
 
 // Notification feature
-// BUG: Issue on break as it doesn't stop the "setTimeout" when it's stopped function.
+// Input placeholder colours need to be changed
+// Done button so it can stop the interval and change the task entirely, this is only avaliable
+// during work times.
+
+// Change the stylesheet

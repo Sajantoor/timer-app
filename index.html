@@ -17,6 +17,7 @@
     <input type="text" id="task" placeholder="Add a task here...">
     <h2 id="taskText"></h2>
     <h2 id="timer">25:00</h2>
+    <h2 id="description"></h2>
 
     <button type="button" id="start">
       <h2 id="start-text"> Start </h2>
@@ -27,5 +28,18 @@
     </button>
 
     <script type="text/javascript" src="js/index.js"></script>
+
+    <script>
+    if('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js', { scope: '/' })
+        .then(function(registration) {
+              console.log('Service Worker Registered');
+        });
+
+      navigator.serviceWorker.ready.then(function(registration) {
+         console.log('Service Worker Ready');
+      });
+    }
+    </script>
   </body>
 </html>

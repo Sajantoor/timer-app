@@ -1,0 +1,19 @@
+{
+  "short_name": "Pomodoro Timer App",
+  "name": "Timer App",
+  "icons": [
+    {
+      "src": "#",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "#",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#1f5584",
+  "display": "standalone",
+  "theme_color": "#1f5584"
+}

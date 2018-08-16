@@ -68,6 +68,13 @@ button#reset h2 {
   color: #c0392b;
 }
 
+h2#description {
+  text-align: center;
+  color: #FFF;
+  mix-blend-mode: overlay;
+  font-weight: 100;
+}
+
 input {
   display: block;
   margin-left: auto;
