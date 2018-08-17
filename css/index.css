@@ -15,7 +15,7 @@ h1 {
   padding: 10px;
   position: relative;
   top: 15pt;
-  font-size: 32pt;
+  font-size: 24pt;
   color: #ecf0f1;
 }
 
@@ -23,6 +23,7 @@ h2#taskText {
   text-align: center;
   color: #FFF;
   font-weight: 400;
+  font-size: 12pt;
 }
 
 h2#timer {
@@ -30,7 +31,20 @@ h2#timer {
   color: #FFF;
   position: relative;
   top: 25pt;
-  font-size: 40pt;
+  font-size: 30pt;
+}
+
+#task::-webkit-input-placeholder {
+  color: rgba(255,255,255, 0.7);
+}
+#task::-moz-placeholder {
+  color: rgba(255,255,255, 1);
+}
+#task:-ms-input-placeholder {
+  color: rgba(255,255,255, 0.7);
+}
+#task:-moz-placeholder {
+  color: rgba(255,255,255, 0.7);
 }
 
 button {
@@ -50,7 +64,7 @@ button {
 }
 
 button h2 {
-  font-size: 15pt;
+  font-size: 12pt;
   text-align: center;
   font-weight: 300;
 }

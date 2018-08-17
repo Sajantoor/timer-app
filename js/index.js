@@ -7,7 +7,7 @@ var br = false;
 
 document.getElementById('task').value = "";
 
-startButton.onclick = function() {
+function startTask() {
   value = document.getElementById('task').value;
   if (value.replace(/\s+/g,' ').trim()) {
     startTimer();
@@ -17,6 +17,17 @@ startButton.onclick = function() {
     alert('Please add a task you want to work on!');
   }
 }
+
+startButton.onclick = startTask;
+
+document.addEventListener('keypress', function(event)  {
+  var input = document.getElementById('task');
+  if (document.activeElement === input) {
+    if (event.keyCode == '13') {
+      startTask();
+    }
+  }
+});
 
 document.getElementById('reset').onclick = function() {
   if (timerEnabled !== true) {
@@ -121,8 +132,5 @@ function breakTime() {
 
 
 // Notification feature
-// Input placeholder colours need to be changed
 // Done button so it can stop the interval and change the task entirely, this is only avaliable
 // during work times.
-
-// Change the stylesheet
