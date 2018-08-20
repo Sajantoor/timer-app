@@ -23,7 +23,7 @@ h2#taskText {
   text-align: center;
   color: #FFF;
   font-weight: 400;
-  font-size: 12pt;
+  font-size: 14pt;
 }
 
 h2#timer {
@@ -32,19 +32,6 @@ h2#timer {
   position: relative;
   top: 25pt;
   font-size: 30pt;
-}
-
-#task::-webkit-input-placeholder {
-  color: rgba(255,255,255, 0.7);
-}
-#task::-moz-placeholder {
-  color: rgba(255,255,255, 1);
-}
-#task:-ms-input-placeholder {
-  color: rgba(255,255,255, 0.7);
-}
-#task:-moz-placeholder {
-  color: rgba(255,255,255, 0.7);
 }
 
 button {
@@ -82,10 +69,18 @@ button#reset h2 {
   color: #c0392b;
 }
 
+button#finish h2{
+  color: #3498db;
+}
+
+button#finish {
+  background-color: #FFF;
+  display: none;
+}
+
 h2#description {
   text-align: center;
-  color: #FFF;
-  mix-blend-mode: overlay;
+  color: rgba(255, 255, 255, 0.8);
   font-weight: 100;
 }
 
@@ -108,4 +103,17 @@ input {
   -moz-appearance-none;
   -ms-appearance-none;
   -o-appearance-none;
+}
+
+#task::-webkit-input-placeholder {
+  color: rgba(255,255,255, 0.7);
+}
+#task::-moz-placeholder {
+  color: rgba(255,255,255, 1);
+}
+#task:-ms-input-placeholder {
+  color: rgba(255,255,255, 0.7);
+}
+#task:-moz-placeholder {
+  color: rgba(255,255,255, 0.7);
 }

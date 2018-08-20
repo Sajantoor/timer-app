@@ -5,6 +5,16 @@ var timerEnabled = true;
 var timesCompleted = 0;
 var br = false;
 
+Notification.requestPermission().then(function(result) {
+  if (result == 'granted') {
+    console.log('notifications are on!');
+    window.notify = true;
+  } else {
+    console.log('Notifications are off!');
+    window.notify = false;
+  }
+});
+
 document.getElementById('task').value = "";
 
 function startTask() {
@@ -13,6 +23,7 @@ function startTask() {
     startTimer();
     document.getElementById('task').style = "display: none;";
     document.getElementById('taskText').innerText = "Task: " + value.replace(/\s+/g,' ').trim();
+    document.getElementById('finish').style = "display: block;";
   } else {
     alert('Please add a task you want to work on!');
   }
@@ -35,7 +46,9 @@ document.getElementById('reset').onclick = function() {
     document.getElementById('start-text').innerText = "Stop";
     document.getElementById('reset').removeAttribute('style');
     timesCompleted = 0;
-    countDown(1500);
+    setTimeout(function() {
+        countDown(1500);
+    }, 1000);
   }
 }
 
@@ -60,8 +73,13 @@ function startTimer() {
 function countDown(time) {
   var timer = document.getElementById('timer');
 
-  if (timerEnabled) {
-    x = setInterval(countDownInterval, 1000);
+  if (time == 0) {
+    clearInterval(x);
+    timer.innerText = "25:00";
+  } else {
+    if (timerEnabled) {
+      x = setInterval(countDownInterval, 1000);
+    }
   }
 
   function countDownInterval() {
@@ -69,6 +87,10 @@ function countDown(time) {
       time--;
 
       if (time <= 0) {
+        if (window.notify) {
+          var body = "Work time is up! Your break is now starting!";
+          var n = new Notification(body, {icon: 'icon.svg'})
+        }
         clearInterval(x);
         window.timesCompleted++;
         if (br !== true) {
@@ -115,6 +137,10 @@ function breakTime() {
     timesCompleted = 0;
     // Change to 1801000
     setTimeout(function() {
+      if (window.notify) {
+        var body = "Task completed! Start another task!";
+        var n = new Notification(body, {icon: 'icon.svg'})
+      }
       resetBreak();
       document.getElementById('task').style = "";
       document.getElementById('taskText').innerText = "";
@@ -130,6 +156,19 @@ function breakTime() {
   }
 }
 
+document.getElementById('finish').addEventListener('click', function() {
+  document.body.style.backgroundColor = "";
+  window.br = false;
+  timesCompleted = 0;
+  document.getElementById('start').style = "";
+  document.getElementById('task').style = "";
+  document.getElementById('taskText').innerText = "";
+  document.getElementById('task').value = "";
+  document.getElementById('finish').style = "";
+  document.getElementById('start-text').innerText = "Start";
+  document.getElementById('reset').style = "";
+  countDown(0);
+})
 
 // Notification feature
 // Done button so it can stop the interval and change the task entirely, this is only avaliable
