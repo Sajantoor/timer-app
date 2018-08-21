@@ -16,7 +16,7 @@ h1 {
   position: relative;
   top: 15pt;
   font-size: 24pt;
-  color: #ecf0f1;
+  color: #FFF;
 }
 
 h2#taskText {
@@ -70,12 +70,16 @@ button#reset h2 {
 }
 
 button#finish h2{
-  color: #3498db;
+  color: #FFF;
+  font-weight: 500;
 }
 
 button#finish {
-  background-color: #FFF;
+  background-color: #3498db;
   display: none;
+  width: 100pt;
+  height: 50pt;
+  border-radius: 25px;
 }
 
 h2#description {
@@ -109,7 +113,7 @@ input {
   color: rgba(255,255,255, 0.7);
 }
 #task::-moz-placeholder {
-  color: rgba(255,255,255, 1);
+  color: rgba(255,255,255, 0.7);
 }
 #task:-ms-input-placeholder {
   color: rgba(255,255,255, 0.7);

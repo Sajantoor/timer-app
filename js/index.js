@@ -167,6 +167,7 @@ document.getElementById('finish').addEventListener('click', function() {
   document.getElementById('finish').style = "";
   document.getElementById('start-text').innerText = "Start";
   document.getElementById('reset').style = "";
+  timeValue = 1500;
   countDown(0);
 })
 
